@@ -48,7 +48,7 @@ You do not need to save a password for the generated key.
 
 8. Copy your keys from the control virtual machine to the digitalscvm with the following command
 
-`ssh-copy-id -i ~/.ssh/id_rsa.pub 192.168.15.11`
+`ssh-copy-id -i ~/.ssh/id_rsa.pub 192.168.15.21`
 
 Your password is the default vagrant password of 'vagrant'
 
@@ -80,4 +80,4 @@ edit the `db.ini` file
 
 You can now exit the vm
 
-13. Look at the [Development Documentation](Development.md) on how to make changes. 
+13. Look at the [Development Documentation](Development.md) on how to make changes.
