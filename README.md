@@ -79,3 +79,5 @@ log into the digitalscvm with
 edit the `db.ini` file
 
 You can now exit the vm
+
+13. Look at the [Development Documentation](Development.md) on how to make changes. 
