@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
   # create omeka vm
   config.vm.define :digitalsc do |digitalsc_config|
       digitalsc_config.vm.box = "ubuntu/trusty64"
-      digitalsc_config.vm.hostname = "digitalsc"
+      digitalsc_config.vm.hostname = "digitalscvm"
       digitalsc_config.vm.network :private_network, ip: "192.168.15.21"
       digitalsc_config.vm.provider "virtualbox" do |vb|
         vb.memory = "2048"
