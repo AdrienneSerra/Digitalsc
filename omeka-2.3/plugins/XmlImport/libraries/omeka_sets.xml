@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Description : List of default sets of Omeka (v1.5 are the same than v2.0), except legacy ones.
+
+    @copyright Daniel Berthereau, 2012-2013
+    @license http://www.apache.org/licenses/LICENSE-2.0.html
+    @package XmlImport
+
+    Notes
+    - "Document" in Omeka 1.5 is "Text" in Omeka 2.0.
+-->
+
+<XMLlist>
+    <elementSet setName="Dublin Core" recordType="All">
+        <element>Title</element>
+        <element>Subject</element>
+        <element>Description</element>
+        <element>Creator</element>
+        <element>Source</element>
+        <element>Publisher</element>
+        <element>Date</element>
+        <element>Contributor</element>
+        <element>Rights</element>
+        <element>Relation</element>
+        <element>Format</element>
+        <element>Language</element>
+        <element>Type</element>
+        <element>Identifier</element>
+        <element>Coverage</element>
+    </elementSet>
+
+    <elementSet setName="Item Type Metadata" recordType="Item">
+        <!-- Text -->
+        <element>Text</element>
+        <!-- Text -->
+        <!-- Moving Image -->
+        <!-- Oral History -->
+        <!-- Sound -->
+        <!-- Still Image -->
+        <element>Original Format</element>
+        <!-- Moving Image -->
+        <!-- Oral History -->
+        <!-- Sound -->
+        <element>Transcription</element>
+        <!-- Moving Image -->
+        <!-- Oral History -->
+        <!-- Sound -->
+        <!-- Event -->
+        <!-- Lesson Plan -->
+        <element>Duration</element>
+        <!-- Moving Image -->
+        <element>Compression</element>
+        <!-- Moving Image -->
+        <element>Producer</element>
+        <!-- Moving Image -->
+        <element>Director</element>
+        <!-- Oral History -->
+        <!-- Sound -->
+        <element>Bit Rate/Frequency</element>
+        <!-- Oral History -->
+        <element>Interviewer</element>
+        <!-- Oral History -->
+        <element>Interviewee</element>
+        <!-- Oral History -->
+        <element>Location</element>
+        <!-- Oral History -->
+        <element>Time Summary</element>
+        <!-- Still Image -->
+        <element>Physical Dimensions</element>
+        <!-- Website -->
+        <element>Local URL</element>
+        <!-- Event -->
+        <element>Event Type</element>
+        <!-- Event -->
+        <element>Participants</element>
+        <!-- Email -->
+        <element>Email Body</element>
+        <!-- Email -->
+        <element>Subject Line</element>
+        <!-- Email -->
+        <element>From</element>
+        <!-- Email -->
+        <element>To</element>
+        <!-- Email -->
+        <element>CC</element>
+        <!-- Email -->
+        <element>BCC</element>
+        <!-- Email -->
+        <element>Number of Attachments</element>
+        <!-- Lesson Plan -->
+        <element>Standards</element>
+        <!-- Lesson Plan -->
+        <element>Objectives</element>
+        <!-- Lesson Plan -->
+        <element>Materials</element>
+        <!-- Lesson Plan -->
+        <element>Lesson Plan Text</element>
+        <!-- Hyperlink -->
+        <element>URL</element>
+        <!-- Person -->
+        <element>Birth Date</element>
+        <!-- Person -->
+        <element>Birthplace</element>
+        <!-- Person -->
+        <element>Death Date</element>
+        <!-- Person -->
+        <element>Occupation</element>
+        <!-- Person -->
+        <element>Biographical Text</element>
+        <!-- Person -->
+        <element>Bibliography</element>
+        <!-- Omeka 2.0 new item types with no elements. -->
+        <!-- Dataset -->
+        <!-- Physical Object -->
+        <!-- Service -->
+        <!-- Software -->
+    </elementSet>
+</XMLlist>
