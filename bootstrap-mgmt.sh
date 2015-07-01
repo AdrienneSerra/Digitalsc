@@ -13,5 +13,5 @@ chown -R vagrant:vagrant /home/vagrant
 # configure hosts file for our internal network defined by Vagrantfile
 cat >> /etc/hosts <<EOL
 # vagrant environment nodes
-192.168.15.10  control
-192.168.15.11  digitalscvm
+192.168.15.20  control
+192.168.15.21  digitalscvm
