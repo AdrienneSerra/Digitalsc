@@ -5,7 +5,7 @@ This Vagrant file and accompanying Ansible playbook will get you two Ubuntu base
 
 ## Setup
 
-You will need to have [Vagrant](https://www.vagrantup.com) and [Virtualbox](https://www.virtualbox.org) installed on your computer. On Microsoft Windows make sure that the network settings on Virtualbox are set to bridged network otherwise your control machine will not see the omekadevvm. In addition to the software above we will install the [babun](http://babun.github.io/)
+You will need to have [Vagrant](https://www.vagrantup.com) and [Virtualbox](https://www.virtualbox.org) installed on your computer. On Microsoft Windows make sure that the network settings on Virtualbox are set to bridged network otherwise your control machine will not see the digitalscvm. In addition to the software above we will install the [babun](http://babun.github.io/)
 
 ### clone this repo
 
@@ -32,7 +32,7 @@ Important to remember where you saved the repo as it will matter for the steps b
 
 5. Change into the cloned directory
 
-`cd vtlibans_omeka`
+`cd digitalsc`
 
 `vagrant up`
 
@@ -46,7 +46,7 @@ Important to remember where you saved the repo as it will matter for the steps b
 
 You do not need to save a password for the generated key.
 
-8. Copy your keys from the control virtual machine to the omekadevvm with the following command
+8. Copy your keys from the control virtual machine to the digitalscvm with the following command
 
 `ssh-copy-id -i ~/.ssh/id_rsa.pub 192.168.15.11`
 
@@ -68,9 +68,9 @@ run
 
 11. To complete the installation
 
-log into the omekadevvm with
+log into the digitalscvm with
 
-`vagrant ssh omekadevvm`
+`vagrant ssh digitalscvm`
 
 12. Navigate to the omeka directory and enter the database information.
 
