@@ -1,0 +1,11 @@
+# domain name
+domain: "omekavm"
+
+# db user name
+omekauser: "omeka"
+
+# database user's password
+omekauserpassword: "omeka"
+
+# database name
+omekadatabase: "omeka"

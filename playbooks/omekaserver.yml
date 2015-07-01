@@ -1,0 +1,180 @@
+---
+
+# Install prerequisites
+- hosts: all
+  sudo: yes
+
+  handlers:
+  - name: restart apache
+    service: name=apache2 state=restarted
+
+  tasks:
+    - name: ensure apt cache is up to date
+      apt: update_cache=yes
+      tags: deps
+    - name: ensure all software is installed
+      apt: pkg={{item}}
+      with_items:
+        - unzip
+        - php5
+        - php5-mysql
+        - apache2
+        - mysql-server
+        - opensmtpd
+        - git
+        - imagemagick
+        - python-pycurl
+        - python-software-properties
+        - php5-ldap
+        - ldap-utils
+      tags: deps
+
+    - name: copy the ldap configuration
+      template:
+        src: "templates/ldap.conf.j2"
+        dest: "/etc/ldap/ldap.conf"
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: copy the vt-cert
+      copy: src=files/vt-cachain.pem dest=/etc/ssl/certs/vt-cachain.pem
+
+    - name: apache enable rewrite module
+      apache2_module: name=rewrite state=present
+      notify: restart apache
+
+    - name: change group owner ship
+      group: name=webdev state=present
+
+    - name: add vagrant user to webdev
+      user: name=vagrant group=webdev
+
+    - name: copy omeka software
+      copy: src=/vagrant/omeka-2.3 dest=/var/www/html owner=root group=webdev
+
+- hosts: all
+  sudo: yes
+
+  vars_files:
+    - vars.yml
+
+  handlers:
+  - name: restart apache
+    service: name=apache2 state=restarted
+
+  tasks:
+    - name: set permissions
+      shell: cd /var/www/html/omeka-2.3/; find . -type d | xargs sudo chmod 775
+
+    - name: set permissions omeka
+      shell: cd /var/www/html/omeka-2.3/; find . -type f | sudo xargs chmod 664
+
+    - name: set permissions files
+      shell: cd /var/www/html/omeka-2.3/files; find . -type d | xargs sudo chmod 777
+
+    - name: set more permissions files
+      shell: cd /var/www/html/omeka-2.3/files;find . -type f | xargs sudo chmod 666
+
+
+- hosts: all
+  sudo: yes
+
+  vars_files:
+    - vars.yml
+
+  handlers:
+  - name: restart apache
+    service: name=apache2 state=restarted
+
+  - name: restart mysql-server
+    service: name=mysqld state=restarted
+
+  tasks:
+    - name: apt-get python-mysqldb
+      apt: pkg=python-mysqldb state=latest
+
+    - name: clear omeka user
+      mysql_user: name={{ omekauser }} state=absent
+
+    - name: create omeka mysql user
+      mysql_user: name={{ omekauser }} password={{ omekauserpassword }} state=present priv=*.*:ALL
+
+    - name: create omeka db
+      mysql_db: name={{ omekadatabase }} login_user={{ omekauser }} login_password={{ omekauserpassword }} state=present
+
+- hosts: all
+  sudo: yes
+
+  vars_files:
+    - vars.yml
+
+  handlers:
+  - name: restart apache
+    service: name=apache2 state=restarted
+
+  tasks:
+    - name: apache add virtualhosts for local
+      template:
+        src: "templates/localhost_virtual.conf.j2"
+        dest: "/etc/apache2/sites-available/{{ domain }}_lib_vt_edu.conf"
+        owner: root
+        group: root
+        mode: 0644
+      notify: restart apache
+
+    - name: apache create symlink of localhost
+      file:
+        src: "/etc/apache2/sites-available/{{ domain }}_lib_vt_edu.conf"
+        dest: "/etc/apache2/sites-enabled/{{ domain }}_lib_vt_edu.conf"
+        state: link
+      notify: restart apache
+
+    - name: apache remove default virtualhost
+      file:
+        path: "/etc/apache2/sites-enabled/000-default.conf"
+        state: absent
+      notify: restart apache
+
+    - name: apache enable rewrite module
+      apache2_module: name=rewrite state=present
+      notify: restart apache
+
+- hosts: all
+  sudo: yes
+
+  vars_files:
+    - vars.yml
+
+  handlers:
+  - name: restart apache
+    service: name=apache2 state=restarted
+
+  tasks:
+    - name: get additional repo
+      apt_repository: repo='ppa:webupd8team/java' update_cache=yes
+
+    - name: jdk7 | accept Oracle license
+      shell: echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+
+
+    - name: jdk7 | install
+      action: apt pkg={{item}}
+      with_items:
+            - oracle-java7-installer
+            - oracle-java7-set-default
+
+    - name: download solr
+      command: wget http://www.motorlogy.com/apache/lucene/solr/5.2.1/solr-5.2.1.tgz chdir=/tmp creates=/tmp/solr-5.2.1.tgz
+
+    - name: unpack solr files
+      unarchive: src=/tmp/solr-5.2.1.tgz dest=/tmp copy=no
+
+    - name: copy unpacked files
+      shell: cp -R /tmp/solr-5.2.1 /opt/solr
+
+    - name: copy SolrOmeka configuration files
+      shell: rsync -av /var/www/html/omeka-2.3/plugins/SolrSearch/solr-core/omeka/ /opt/solr/server/solr/omeka
+
+    - name: start solr server
+      shell: /opt/solr/bin/solr -p 8080
