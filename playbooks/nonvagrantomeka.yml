@@ -48,7 +48,7 @@
       group: name=webdev state=present
 
     - name: copy omeka software
-      copy: src=../omeka-2.3 dest=/var/www/html owner=root group=webdev
+      synchronize: src=../omeka-2.3/ dest=/var/www/html/omeka-2.3/ 
 
 - hosts: all
   sudo: yes
