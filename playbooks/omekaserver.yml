@@ -178,3 +178,12 @@
 
     - name: start solr server
       shell: /opt/solr/bin/solr -p 8080
+
+    - name: copy solr startup script
+      copy: src=files/start_solr.sh dest=/etc/init.d/start_solr.sh owner=root group=root mode="a+x"
+
+    - name: enable rc-d defaults
+      shell: update-rc.d start_solr.sh defaults
+
+    - name: enable rc.d on boot
+      shell: update-rc.d start_solr.sh enable
