@@ -1,0 +1,155 @@
+
+<noscript>
+			<style>
+				.es-carousel ul{
+					display:block;
+				}
+			</style>
+		</noscript>
+		<script id="img-wrapper-tmpl" type="text/x-jquery-tmpl">	
+			<div class="rg-image-wrapper">
+				{{if itemsCount > 1}}
+					<div class="rg-image-nav">
+						<a href="#" class="rg-image-nav-prev">Previous Image</a>
+						<a href="#" class="rg-image-nav-next">Next Image</a>
+					</div>
+				{{/if}}
+				<div class="rg-image"></div>
+				<div class="rg-loading"></div>
+				<div class="rg-caption-wrapper">
+					<div class="rg-caption" style="display:none;">
+						<p></p>
+					</div>
+				</div>
+			</div>
+		</script>
+    </head>
+
+
+<?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'items show')); ?>
+
+
+    <h1><?php echo metadata('item', array('Dublin Core','Title')); ?></h1>
+
+    <?php
+    $titles = metadata('item',array('Dublin Core','Title'),array('all'));
+
+    if(count($titles) > 1):
+    ?>
+    <h3><?php echo __('All Titles'); ?></h3>
+    <ul class="title-list">
+        <?php foreach($titles as $title): ?>
+            <li class="item-title">
+                <?php echo $title; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php endif; ?>
+
+   
+    
+<?php if(count($item->Files)>1): ?>
+<?php $index = 0; ?>
+<div id="rg-gallery" class="rg-gallery">
+    <div class="rg-thumbs">
+        <!-- Elastislide Carousel Thumbnail Viewer -->
+        <div class="es-carousel-wrapper">
+            <div class="es-nav">
+                <span class="es-nav-prev">Previous</span>
+                <span class="es-nav-next">Next</span>
+            </div>
+            <div class="es-carousel">
+                <ul>				
+				
+				<?php foreach ($item->Files as $index => $file): ?> 
+					 <li><a href="#"><img src="<?php echo file_display_url($file, 'square_thumbnail')?>" data-large="<?php echo file_display_url($file, 'thumbnail')?>" alt="<?php echo metadata($file, array('Dublin Core', 'Title'))?>" data-description="<?php echo metadata($file, array('Scripto', 'Transcription'))?>" />
+                        </a>
+					</li>
+                		<?php $index++; ?>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>
+<!-- End Elastislide Carousel Thumbnail Viewer -->
+</div>
+</div>
+<!-- End Gallery Html Containers -->
+
+
+<?php endif; ?>
+
+<?php if (count($item->Files)<2): ?>
+<div id="item-images">
+         <?php echo files_for_item(); ?>
+</div>
+<?php endif; ?>
+
+ <!-- Items metadata -->
+    <div id="item-metadata">
+        <?php echo all_element_texts('item'); ?>
+
+    
+   <?php if(metadata('item','Collection Name')): ?>
+      <div id="collection" class="element">
+        <h3><?php echo __('Collection'); ?></h3>
+        <div class="element-text"><p><?php echo link_to_collection_for_item(); ?></p></div>
+      </div>
+   <?php endif; ?>
+</section>
+     <!-- The following prints a list of all tags associated with the item -->
+    <?php if (metadata('item','has tags')): ?>
+    <div id="item-tags" class="element">
+        <h3><?php echo __('Tags'); ?></h3>
+        <div class="element-text"><?php echo tag_string('item'); ?></div>
+    </div>
+    <?php endif;?>
+
+    <!-- The following prints a citation for this item. -->
+    <div id="item-citation" class="element">
+        <h3><?php echo __('Citation'); ?></h3>
+        <div class="element-text"><?php echo metadata('item','citation',array('no_escape'=>true)); ?></div>
+    </div>
+       <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
+
+
+    <ul class="item-pagination navigation">
+        <li id="previous-item" class="previous"><?php echo link_to_previous_item_show(); ?></li>
+        <li id="next-item" class="next"><?php echo link_to_next_item_show(); ?></li>
+    </ul>
+</div>
+</div> <!-- End of Primary. -->
+
+		<script type="text/javascript" src="https://omekadev.lib.vt.edu/themes/berlin-custom/javascripts/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="https://omekadev.lib.vt.edu/themes/berlin-custom/javascripts/jquery.elastislide.js"></script>
+		<script type="text/javascript" src="https://omekadev.lib.vt.edu/themes/berlin-custom/javascripts/gallery.js"></script>
+<?php echo foot(); ?>
+
+
+
+<noscript>
+			<style>
+				.es-carousel ul{
+					display:block;
+				}
+			</style>
+		</noscript>
+<script id="img-wrapper-tmpl" type="text/x-jquery-tmpl"> 
+    <div class="rg-image-wrapper">
+        
+            <div class="rg-image-nav">
+                <a href="#" class="rg-image-nav-prev">Previous Image</a>
+                <a href="#" class="rg-image-nav-next">Next Image</a>
+            </div>
+        
+        <div class="rg-image"></div>
+        <div class="rg-loading"></div>
+        <div class="rg-caption-wrapper">
+            <div class="rg-caption" style="display:none;">
+                <p></p>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+<?php echo link_to_file_show('file') ?>
