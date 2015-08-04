@@ -51,7 +51,7 @@
       user: name=vagrant group=webdev
 
     - name: copy omeka software
-      synchronize: src=../omeka-2.3/ dest=/var/www/html/omeka-2.3/
+      synchronize: src=/vagrant/omeka-2.3/ dest=/var/www/html/omeka-2.3/
 
 - hosts: all
   sudo: yes
