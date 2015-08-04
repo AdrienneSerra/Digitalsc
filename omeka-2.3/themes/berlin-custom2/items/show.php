@@ -31,7 +31,7 @@
 	<?php case 'Panorama': ?>
 	<?php foreach (loop('files', $item->Files) as $index => $file): ?>
 	<div class="item-file">
-			<img src="<?php echo file_display_url($file, 'thumbnail')?>"/>
+			<img src="<?php echo file_display_url($file, 'fullsize')?>"/>
         	</div>
 		<script type="text/javascript">
 			window.onload = function() {
@@ -66,7 +66,7 @@
                 		<ul>				
 				<?php foreach (loop('files', $item->Files) as $index => $file): ?> 
 					
-					 <li><a href="#" title="Page <?php echo $index + 1; ?> of <?php echo $total; ?>"><img src="<?php echo file_display_url($file, 'square_thumbnail')?>" data-large="<?php echo file_display_url($file, 'thumbnail')?>" data-zoom-image="<?php echo file_display_url($file, 'original')?>" alt="<?php echo metadata($file, array('Dublin Core', 'Title'))?>" data-description="<?php echo metadata($file, array('Scripto', 'Transcription'))?>" data-link='<?php echo link_to_file_show(array('class'=>'show', 'target'=>__('_blank'), 'title'=>__('View Page Metadata')), 'View Page Details')?>' />
+					 <li><a href="#" title="Page <?php echo $index + 1; ?> of <?php echo $total; ?>"><img src="<?php echo file_display_url($file, 'square_thumbnail')?>" data-large="<?php echo file_display_url($file, 'fullsize')?>" data-zoom-image="<?php echo file_display_url($file, 'original')?>" alt="<?php echo metadata($file, array('Dublin Core', 'Title'))?>" data-description="<?php echo metadata($file, array('Scripto', 'Transcription'))?>" data-link='<?php echo link_to_file_show(array('class'=>'show', 'target'=>__('_blank'), 'title'=>__('View Page Metadata')), 'View Page Details')?>' />
                         </a>
 					</li>
                 		<?php $index++; ?>
@@ -87,7 +87,7 @@
 	<?php foreach (loop('files', $item->Files) as $index => $file): ?>
          <div id="left-panel">
 		<div class="item-file">
-			<img class="zoom-file" src="<?php echo file_display_url($file, 'thumbnail')?>" data-zoom-image="<?php echo file_display_url($file, 'original')?>"/>
+			<img class="zoom-file" src="<?php echo file_display_url($file, 'fullsize')?>" data-zoom-image="<?php echo file_display_url($file, 'original')?>"/>
 			<div class="note">Click on the image to magnify, scroll to adjust the zoom</div>
         	</div>
 	<h3><a href="<?php echo file_display_url($file, 'original')?>" target="_blank">View Fullsize Image</a></h3>
