@@ -35,9 +35,9 @@
    <div class="item">
 <?php $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title'))); ?>
 <?php if(count($item->Files)>4): ?>
-      <?php echo item_image('thumbnail', array('alt' => $itemTitle),3); ?>
+      <?php echo item_image('fullsize', array('alt' => $itemTitle),3); ?>
   <?php elseif(count($item->Files)<5): ?>
-  <?php echo item_image('thumbnail', array('alt' => $itemTitle)); ?>
+  <?php echo item_image('fullsize', array('alt' => $itemTitle)); ?>
 <?php endif; ?>
             <div class="carousel-caption">
 
