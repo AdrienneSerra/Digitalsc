@@ -22,15 +22,15 @@
 
 
 
-<script type="text/javascript" src="https://omekadev.lib.vt.edu/themes/berlin-custom-Current/javascripts/tooltipster.js"></script>
+<script type="text/javascript" src="https://digitalsc.lib.vt.edu/themes/berlin-custom2/javascripts/tooltipster.js"></script>
 
-<script type="text/javascript" src="https://omekadev.lib.vt.edu/themes/berlin-custom-Current/javascripts/beforeAfter.js"></script>
+<script type="text/javascript" src="https://digitalsc.lib.vt.edu/themes/berlin-custom2/javascripts/beforeAfter.js"></script>
 
-<script type="text/javascript" src="https://omekadev.lib.vt.edu/themes/berlin-custom-Current/javascripts/zoom.js"></script>
+<script type="text/javascript" src="https://digitalsc.lib.vt.edu/themes/berlin-custom2/javascripts/zoom.js"></script>
 
-<script type="text/javascript" src="https://omekadev.lib.vt.edu/themes/berlin-custom-Current/javascripts/TimelineJS-master/build/js/storyjs-embed.js"></script>
+<script type="text/javascript" src="https://digitalsc.lib.vt.edu/themes/berlin-custom2/javascripts/TimelineJS-master/build/js/storyjs-embed.js"></script>
 
-<script type="text/javascript" src="https://omekadev.lib.vt.edu/themes/berlin-custom-Current/javascripts/LGBT.js"></script>
+<script type="text/javascript" src="https://digitalsc.lib.vt.edu/themes/berlin-custom2/javascripts/LGBT.js"></script>
 
 <script type="text/javascript">
     jQuery(document).ready(function(){
