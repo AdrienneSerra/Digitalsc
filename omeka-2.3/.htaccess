@@ -31,6 +31,7 @@ RewriteRule .* - [L]
 
 RewriteRule ^install/.*$ install/install.php [L]
 RewriteRule ^admin/.*$ admin/index.php [L]
+RewriteRule ^ohms-viewer/.*$ ohms-viewer/viewer.php [L]
 RewriteRule .* index.php
 
 # -------------- #
