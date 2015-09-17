@@ -47,10 +47,10 @@
 		<?php if(isset($config[$cacheFile->repository])): ?>
 		<img src="<?php echo $config[$cacheFile->repository]['footerimg'];?>" alt="<?php echo $config[$cacheFile->repository]['footerimgalt'];?>" style="float: left;" />
 		<?php endif; ?>
-      <div class="center" style="width:860px;">
+      <div class="center">
 	<h1><?php echo $cacheFile->title; ?></h1>
 	<h2 id="secondaryMetaData">
-		<div style="margin-left: 80px;">
+		<div>
 			<strong><?php echo $cacheFile->repository; ?></strong><br />
 			<?php echo $cacheFile->collection; ?>, <?php echo $cacheFile->series; ?><br/>
 			<?php echo $cacheFile->interviewer; ?>, Interviewer | <?php echo $cacheFile->accession; ?>
@@ -62,18 +62,25 @@
       </div>
     </div>
     <div id="main">
-      <div id="main-panels">
+      
 	<div id="content-panel">
+    
 	  <div id="transcript-panel">
 	    <?php echo $cacheFile->transcript; ?>
 	  </div>
 	  <div id="index-panel">
 	    <?php echo $cacheFile->index; ?>
 	  </div>
+      
 	</div>
-	<div id="searchbox-panel"><?php include_once 'tmpl/search.tmpl.php'; ?></div>
-      </div>
+    
+	<div id="searchbox-panel">
+		<?php include_once 'tmpl/search.tmpl.php'; ?>
+     </div>
+     
     </div>
+    
+    
     <div id="footer">
 		<div style="float: left; text-align: left; width: 50%; margin-top: -12px;">
 			<?php if(!empty($rights)): ?>
