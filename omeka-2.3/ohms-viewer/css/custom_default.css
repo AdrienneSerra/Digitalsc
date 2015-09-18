@@ -42,25 +42,30 @@ h1 {
 	width: 100%;
 }
 #content-panel {
-	width: 50%;
-	margin-right: 10%;
+	width: 60%;
+	margin-right: 7%;
 	
 }
 #transcript-panel {
 	width: 100%;
 	padding-left: 10%;
 	padding-right: 10%;
+	margin-top: 10px;
 	border: 1px solid #dcdcdc;
-	height: 540px !important;
+	height: 530px !important;
 }
 #index-panel {
-	width: 50%;
+	width: 55%;
 	padding-left: 5%;
 	padding-right: 2%;
+	max-width: 760px;
+	height: 535px !important;
+	margin-top: 8px;
+	border: 1px solid #dcdcdc;
 }
 #searchbox-panel {
-	width: 30%;
-	margin-left: 8%;	
+	width: 20%;
+	margin-left: 10%;	
 }
 
 .center {
@@ -81,7 +86,20 @@ fieldset {
 #transcript-panel .jumpLink {
   left: 1px;
 }
-	
+@media only screen and (min-width: 769px) and (max-width: 1000px) {
+	#content-panel {
+	width: 55%;
+	}
+	#index-panel {
+		width: 50%;
+	}
+	#search-toggle {
+		width: 150%;
+	}
+	#searchbox-panel {
+	margin-left: 8%;	
+}
+}
  @media only screen and (max-width: 768px) {
 	#header {
 		padding: 0 1% 0 1%;
@@ -94,7 +112,7 @@ fieldset {
 	#main {
 		padding: 0 1% 0 1%;
 		width: 95%;
-		height: 800px !important;
+		height: 820px !important;
 	}
 	#content-panel {
 		width: 95%;
@@ -109,7 +127,7 @@ fieldset {
 		width: 90%;
 		top:465px;
 		height: 575px !important;
-		border: 1px solid #dcdcdc;
+		
 	}
 	#transcript-panel {
 		padding-left: 5%;
