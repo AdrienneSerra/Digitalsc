@@ -48,7 +48,10 @@
     <?php endforeach; ?>
             <?php break; ?>
 
-            
+        <?php case 'OHMS': ?>   
+        <iframe src='/ohms-viewer/viewer.php?cachefile=<?php echo metadata($item, array('Dublin Core', 'Identifier')); ?>.xml' width=100% height=900px><a href='/ohms-viewer/viewer.php?cachefile=<?php echo metadata($item, array('Dublin Core', 'Identifier')); ?>.xml' target='_blank'>Listen here</a></iframe>
+        <?php break; ?>
+        
       	<?php case 'default': ?>
 	<?php default: ?>
             <?php if(count($item->Files)>1): ?>

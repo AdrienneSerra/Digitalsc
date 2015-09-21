@@ -1,6 +1,4 @@
-if (!Berlin) {
-    var Berlin = {};
-}
+
 
 (function ($) {    
     Berlin.dropDown = function(){
