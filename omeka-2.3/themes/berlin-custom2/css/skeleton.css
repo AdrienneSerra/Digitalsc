@@ -162,10 +162,7 @@
 	margin-top: 20px;
             text-align:center;
         }
-	 #primary-nav .navigation{
-       
-       width:10%;
-    }
+	
         #search-container{
             width: 70%;
             clear:both; 
@@ -221,7 +218,9 @@
        #mobile-nav {
          display:block;
         clear:both;
-        overflow:hidden;
+       position: relative;
+	  margin-right: 50px;
+	   width: 10%;
         zoom:1;
         border:1px solid #ccc;
         border-width:0 0 0 1px;
@@ -232,15 +231,18 @@
         #mobile-nav a.menu{
             width: 116px;
             font-size:1.5em; 
+			
+			
         }
         #mobile-nav  ul{
             position:absolute;
             z-index:199;
             background:#557082;
             border-bottom:1px solid #ccc;
+			width: 136px;
         }
         #mobile-nav li {
-            width: 144px;
+            width: 100%;
             text-align:left;
             display:block;
             overflow:hidden;
@@ -268,7 +270,9 @@
             background:#93a7b3;
             color:#660000;
             }
-            
+            #mobile-nav li ul {
+				position: relative;
+			}
         #mobile-nav li ul a:before {
             content: "-- ";
         }
@@ -372,9 +376,7 @@ padding-right: 1px;
             
         }
 
-        #primary-nav ul.navigation{
-            list-style-type:none;
-        }
+       
               
        #footer{
         width:100%;
@@ -442,14 +444,21 @@ padding-right: 1px;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
-    padding-right: 1px;
+    padding-right: 0px;
     }
-	
+	.navigation-title {
+		padding-right: 0px;
+	}
     h8 {
-    font-size: 3em;
+    font-size: 2.6em;
     }
      h9 {
          font-size: 1.75em;
      }   
-    
+    .slider-box {
+		display: none;
+	}
+	#right-panel {
+		margin-top: 1px;
+	}
  }

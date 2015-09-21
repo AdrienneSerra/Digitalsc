@@ -20,24 +20,19 @@
 
 </div><!--end wrap-->
 
+<script type="text/javascript" src="/themes/berlin-custom2/javascripts/dropdown.js"></script>
+
+<script type="text/javascript" src="/themes/berlin-custom2/javascripts/tooltipster.js"></script>
+
+<script type="text/javascript" src="/themes/berlin-custom2/javascripts/beforeAfter.js"></script>
+
+<script type="text/javascript" src="/themes/berlin-custom2/javascripts/zoom.js"></script>
+
+<script type="text/javascript" src="/themes/berlin-custom2/javascripts/TimelineJS-master/build/js/storyjs-embed.js"></script>
+
+<script type="text/javascript" src="/themes/berlin-custom2/javascripts/LGBT.js"></script>
 
 
-<script type="text/javascript" src="https://digitalsc.lib.vt.edu/themes/berlin-custom2/javascripts/tooltipster.js"></script>
-
-<script type="text/javascript" src="https://digitalsc.lib.vt.edu/themes/berlin-custom2/javascripts/beforeAfter.js"></script>
-
-<script type="text/javascript" src="https://digitalsc.lib.vt.edu/themes/berlin-custom2/javascripts/zoom.js"></script>
-
-<script type="text/javascript" src="https://digitalsc.lib.vt.edu/themes/berlin-custom2/javascripts/TimelineJS-master/build/js/storyjs-embed.js"></script>
-
-<script type="text/javascript" src="https://digitalsc.lib.vt.edu/themes/berlin-custom2/javascripts/LGBT.js"></script>
-
-<script type="text/javascript">
-    jQuery(document).ready(function(){
-        Omeka.showAdvancedForm();
-               Omeka.dropDown();
-    });
-</script>
 
 
 </body>

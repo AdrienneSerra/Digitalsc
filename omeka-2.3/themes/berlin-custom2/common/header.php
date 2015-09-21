@@ -34,7 +34,7 @@ echo head_css();
 <?php queue_js_file('vendor/modernizr'); ?>
     <?php queue_js_file('vendor/selectivizr', 'javascripts', array('conditional' => '(gte IE 6)&(lte IE 8)')); ?>
     <?php queue_js_file('vendor/respond'); ?>
-    <?php queue_js_file('globals'); ?>
+	<?php queue_js_file('globals'); ?>
     <?php queue_js_file('bootstrap.min'); ?>
 	<?php queue_js_file('jquery.tmpl.min'); ?>
 	<?php queue_js_file('jquery.beforeafter-1.4'); ?>
@@ -90,16 +90,16 @@ echo head_css();
 	
   <div id="header-image">       
    <div id="wrap">
-	<div id="primary-nav">
+	<div id="primary-nav" role="navigation">
                <?php
                     echo public_nav_main();
                ?>
            </div>
-                   <div id="mobile-nav">
-               <?php
-                    echo public_nav_main();
-               ?>
-           </div>
+                  <div id="mobile-nav" role="navigation" aria-label="<?php echo __('Mobile Navigation'); ?>">
+             <?php
+                  echo public_nav_main();
+             ?>
+         </div>
  
     	<div id="content">
 
