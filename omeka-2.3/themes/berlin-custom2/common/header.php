@@ -15,14 +15,16 @@
 
     <?php fire_plugin_hook('public_head',array('view'=>$this)); ?>
     <!-- Stylesheets -->
-    <?php
+   
+	
+	<?php
     queue_css_file('style');
     queue_css_file('skeleton');
     queue_css_file('elastislide');
 	queue_css_file('rgstyle');
 	queue_css_file('tooltipster');
 	queue_css_file('timeline');
-
+	queue_css_file('jquery.fancybox');
 echo head_css();
     ?>
 <script src="https://youcanbook.me/resources/scripts/ycbm.modal.js"></script>
@@ -44,6 +46,7 @@ echo head_css();
 	<?php queue_js_file('gallery'); ?>
 <?php queue_js_file('timeline'); ?>
 <?php queue_js_file('panorado_min'); ?>
+<?php queue_js_file('jquery.fancybox.pack'); ?>
 
 	<?php echo head_js(); ?>
 	
